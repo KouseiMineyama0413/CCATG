@@ -9,6 +9,7 @@ CCATG is a developer-facing CLI that generates Claude Code sub-agent teams from 
 - Install deps: `npm install`
 - Build: `npm run build` (outputs to `dist/`)
 - Run commands from your project root: `node ./ccatg/dist/index.js <command> ...`.
+- Shortcut CLI: `npm run link:local` (builds then `npm link`) to expose `ccatg` on your PATH. After linking you can run `ccatg --help` from the project root (or anywhere).
 
 ## Directory Layout & Execution Assumptions
 ```

@@ -8,7 +8,7 @@ Claude Code のサブエージェントをテンプレートからまとめて�
 - Node.js 18+ を想定
 - 依存インストール: `npm install`
 - ビルド: `npm run build`（`dist/` にコンパイルされた CLI が出ます）
-- ローカルで `ccatg` コマンドを使いたい場合は `npm link` を実行するか、`node dist/index.js ...` で直接呼び出します。
+- ショートカット: `npm run link:local`（ビルドして `npm link`）で PATH に `ccatg` を登録できます。以降は `ccatg --help` で利用可能。直接実行したい場合は `node dist/index.js ...` でも呼び出せます。
 - `run-with-agents` サブコマンドを使う場合は `claude` CLI が PATH に必要です。
 
 ## 主要コマンド
