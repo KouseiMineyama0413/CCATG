@@ -1,0 +1,28 @@
+{
+  "name": "ccatg",
+  "version": "1.0.0",
+  "description": "Claude Code Agent Team Generator CLI",
+  "main": "dist/index.js",
+  "bin": {
+    "ccatg": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "claude",
+    "agents",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.2",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "typescript": "^5.9.3"
+  }
+}
