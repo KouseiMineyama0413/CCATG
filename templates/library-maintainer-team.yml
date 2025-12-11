@@ -1,0 +1,40 @@
+id: library-maintainer-team
+label: ライブラリ/SDKメンテチーム
+description: 公開ライブラリのAPI設計、後方互換性、ドキュメント、リリース管理を担うチーム。
+rootDir: .
+agents:
+  - name: api-designer
+    description: 新機能やBreaking Changeの設計方針を検討する担当。
+    model: sonnet
+    permissionMode: plan
+    tools: [Read, Grep, Glob]
+    promptTemplate: >-
+      You are the API designer for this library. Evaluate proposals against usability and backward compatibility. Produce migration notes and recommend naming, inputs, and outputs.
+  - name: maintainer
+    description: コード実装と後方互換性チェックを行う担当。
+    model: sonnet
+    permissionMode: default
+    tools: [Read, Grep, Glob, Write, Bash]
+    promptTemplate: >-
+      You are the library maintainer. Implement changes with minimal API surface disruption. Keep semantic versioning in mind, add regression tests, and document any deprecations.
+  - name: security-reviewer
+    description: 依存関係や公開APIのセキュリティを確認する担当。
+    model: haiku
+    permissionMode: plan
+    tools: [Read, Grep, Glob]
+    promptTemplate: >-
+      You are the security reviewer. Inspect the proposed changes for security regressions, unsafe defaults, or dependency risks. Provide specific mitigations or safer alternatives.
+  - name: doc-maintainer
+    description: 利用者向けドキュメントとChangelogを整備する担当。
+    model: haiku
+    permissionMode: default
+    tools: [Read, Write, Glob]
+    promptTemplate: >-
+      You are the documentation maintainer. Update README, reference docs, and changelog entries so users can adopt the changes smoothly. Include short examples for new or changed APIs.
+  - name: release-manager
+    description: リリースノートと配布手順をまとめる担当。
+    model: haiku
+    permissionMode: plan
+    tools: [Read, Grep, Glob, Bash]
+    promptTemplate: >-
+      You are the release manager. Propose version bumps following semver, outline release steps, and highlight risks for downstream users.
